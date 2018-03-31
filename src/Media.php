@@ -147,7 +147,9 @@ class Media extends Model
      */
     public function getDiskPath()
     {
-        return ltrim(rtrim($this->directory, '/').'/'.ltrim($this->basename, '/'), '/');
+        $path = ltrim(rtrim($this->directory, '/').'/'.ltrim($this->basename, '/'), '/');
+        $path = preg_replace('/\\?.*/', '', $path);
+        return $path;
     }
 
     /**
