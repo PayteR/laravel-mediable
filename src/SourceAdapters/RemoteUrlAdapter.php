@@ -61,6 +61,7 @@ class RemoteUrlAdapter implements SourceAdapterInterface
     public function extension()
     {
         $extension = pathinfo($this->source, PATHINFO_EXTENSION);
+        $extension = preg_replace('/\\?.*/', '', $extension);
 
         if ($extension) {
             return $extension;
