@@ -98,7 +98,7 @@ class RemoteUrlAdapter implements SourceAdapterInterface
      */
     public function size()
     {
-        return $this->getHeader('Content-Length');
+        return $this->getHeader('Content-Length') ? : 0;
     }
 
     /**
