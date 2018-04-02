@@ -90,7 +90,14 @@ class RemoteUrlAdapter implements SourceAdapterInterface
      */
     public function valid()
     {
-        return strpos($this->getHeader(0), '200') !== false;
+        for($i = 0;$i <= 3;$i++) {
+            if(strpos($this->getHeader($i), '200') !== false)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
